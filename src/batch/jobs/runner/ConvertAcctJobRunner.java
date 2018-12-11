@@ -8,8 +8,9 @@ import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteExcep
 import org.springframework.batch.core.repository.JobRestartException;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class ConvAcctJobRunner {
-    private static String jobName = "convAcctJob";
+public class ConvertAcctJobRunner {
+
+    private static String jobName = "convertAcctJob";
 
     public static void main(String[] args) {
 
@@ -35,13 +36,8 @@ public class ConvAcctJobRunner {
             } else {
                 System.exit(0);
             }
-        } catch (JobExecutionAlreadyRunningException e) {
-            e.printStackTrace();
-        } catch (JobRestartException e) {
-            e.printStackTrace();
-        } catch (JobInstanceAlreadyCompleteException e) {
-            e.printStackTrace();
-        } catch (JobParametersInvalidException e) {
+        } catch (JobExecutionAlreadyRunningException | JobRestartException | JobInstanceAlreadyCompleteException
+            | JobParametersInvalidException e) {
             e.printStackTrace();
         }
 
